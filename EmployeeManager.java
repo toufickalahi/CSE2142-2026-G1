@@ -46,8 +46,7 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
 
             try {
-                String employeeData = readEmployeeData();
-                String[] employees = employeeData.split(",");
+                String[] employees = readEmployeeData().split(",");
 
                 for (String employee : employees) {
                     System.out.println(employee);
@@ -95,8 +94,7 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
 
             try {
-                String employeeData = readEmployeeData();
-                String[] employees = employeeData.split(",");
+                String[] employees = readEmployeeData().split(",");
 
                 boolean found = false;
                 String searchName = args[0].substring(1);
