@@ -8,7 +8,7 @@ public class EmployeeManager {
     private static String readEmployeeData() throws IOException {
         BufferedReader reader = new BufferedReader(
             new InputStreamReader(
-               new FileInputStream(Constants.EMPLOYEE_FILE)
+                new FileInputStream(Constants.EMPLOYEE_FILE)
             )
         );
 
@@ -24,7 +24,7 @@ public class EmployeeManager {
             throws IOException {
 
         BufferedWriter writer = new BufferedWriter(
-           new FileWriter(Constants.EMPLOYEE_FILE, append)
+            new FileWriter(Constants.EMPLOYEE_FILE, append)
         );
 
         try {
@@ -95,17 +95,13 @@ public class EmployeeManager {
 
             try {
                 String[] employees = readEmployeeData().split(",");
-
-                boolean found = false;
                 String searchName = args[0].substring(1);
 
-                for (int index = 0;
-                     index < employees.length && !found;
-                     index++) {
+                for (int index = 0; index < employees.length; index++) {
 
                     if (employees[index].equals(searchName)) {
                         System.out.println("Employee found!");
-                        found = true;
+                        break;
                     }
                 }
 
