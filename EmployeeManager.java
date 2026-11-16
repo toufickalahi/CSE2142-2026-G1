@@ -6,6 +6,10 @@ import java.util.*;
 public class EmployeeManager {
 
     public static void main(String[] args) {
+        if (args.length == 0) {
+    System.out.println("Please provide an argument.");
+    return;
+}
 
         // Check arguments
         if (args[0].equals("l")) {
