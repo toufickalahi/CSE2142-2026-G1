@@ -4,7 +4,6 @@ import java.util.*;
 
 public class EmployeeManager {
 
-    // Read employee data from the file
     private static String readEmployeeData() throws IOException {
         BufferedReader reader = new BufferedReader(
             new InputStreamReader(
@@ -19,7 +18,6 @@ public class EmployeeManager {
         }
     }
 
-    // Write employee data to the file
     private static void writeEmployeeData(String data, boolean append)
             throws IOException {
 
@@ -41,7 +39,6 @@ public class EmployeeManager {
             return;
         }
 
-        // List all employees
         if (args[0].equals("l")) {
             System.out.println("Loading data ...");
 
@@ -57,7 +54,6 @@ public class EmployeeManager {
 
             System.out.println("Data Loaded.");
 
-        // Select a random employee
         } else if (args[0].equals("s")) {
             System.out.println("Loading data ...");
 
@@ -76,7 +72,6 @@ public class EmployeeManager {
 
             System.out.println("Data Loaded.");
 
-        // Add a new employee
         } else if (args[0].contains("+")) {
             System.out.println("Loading data ...");
 
@@ -89,7 +84,6 @@ public class EmployeeManager {
 
             System.out.println("Data Loaded.");
 
-        // Search for an employee
         } else if (args[0].contains("?")) {
             System.out.println("Loading data ...");
 
@@ -110,36 +104,22 @@ public class EmployeeManager {
 
             System.out.println("Data Loaded.");
 
-        // Count words
         } else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
 
             try {
                 String employeeData = readEmployeeData();
-                char[] characters = employeeData.toCharArray();
 
-                boolean inWord = false;
-                int count = 0;
+                String[] words = employeeData.trim().split("[,\\s]+");
+                int wordCount = words.length;
 
-                for (char character : characters) {
-                    if (character == ' ') {
-                        if (!inWord) {
-                            count++;
-                            inWord = true;
-                        } else {
-                            inWord = false;
-                        }
-                    }
-                }
-
-                System.out.println(count + " word(s) found " + characters.length);
+                System.out.println(wordCount + " word(s) found");
 
             } catch (Exception exception) {
             }
 
             System.out.println("Data Loaded.");
 
-        // Update an employee
         } else if (args[0].contains("u")) {
             System.out.println("Loading data ...");
 
@@ -161,7 +141,6 @@ public class EmployeeManager {
 
             System.out.println("Data Updated.");
 
-        // Delete an employee
         } else if (args[0].contains("d")) {
             System.out.println("Loading data ...");
 
